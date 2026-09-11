@@ -30,7 +30,7 @@ export default function Home() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/recommend",
+        "https://capacity-connect-sih.onrender.com/api/recommend",
         { learningNeed }
       );
 
