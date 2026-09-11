@@ -1,19 +1,24 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
-export default function CoursesPage() {
-  const searchParams = useSearchParams();
+export default async function CoursesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    course?: string;
+    trainer?: string;
+    expertise?: string;
+  }>;
+}) {
+  const params = await searchParams;
 
   const selectedCourse =
-    searchParams.get("course") || "Ocean Data Analysis with Python";
+    params.course || "Ocean Data Analysis with Python";
 
   const trainer =
-    searchParams.get("trainer") || "Dr. Ananya Sen";
+    params.trainer || "Dr. Ananya Sen";
 
   const expertise =
-    searchParams.get("expertise") ||
+    params.expertise ||
     "Ocean Data Analytics · Python";
 
   return (
